@@ -23,39 +23,44 @@
   </head>
   <body>
     <div class="container">
-      <div class="main-info">
-        <div class="row">
-          <div class="col-4">
-            <h1>New York</h1>
-            <h2>
-              <ul>
-                <li>Friday, 00:00</li>
-                <li>Humidity: <span class="indication">0%</span></li>
-                <li>Wind: <span class="indication"> 0m/s</span></li>
-              </ul>
-            </h2>
-          </div>
-          <div class="col-4">
+      <div class="weather-app-wrapper">
+        <div class="main-info">
+          <div class="units">C|F</div>
+          <div class="icon">
             <img
               src="https://cdn-icons-png.flaticon.com/512/169/169367.png"
               alt="Clear"
               width="50px"
             />
           </div>
-          <div class="col-4">
-            <h1>20° C|F</h1>
-            <h2>clear sky</h2>
+          <div class="row">
+            <div class="col-6 city">
+              <h1>New York</h1>
+              <ul>
+                <li>friday, 00:00</li>
+                <li>clear sky</li>
+              </ul>
+            </div>
+            <div class="col-6 temperature">
+              <h1>20°C</h1>
+              <ul>
+                <li>feels like 20°C</li>
+                <li>humidity: <span class="indication">0%</span></li>
+                <li>wind: <span class="indication"> 0m/s</span></li>
+              </ul>
+            </div>
           </div>
         </div>
-        <footer>
-          <a
-            href="https://github.com/benderevija/weather-app-nature"
-            target="_blanc"
-            >Open-source code</a
-          >
-          by Evija Bendere
-        </footer>
       </div>
+      <footer>
+        <a
+          href="https://github.com/benderevija/weather-app-nature"
+          target="_blanc"
+        >
+          Open-source code
+        </a>
+        by Evija Bendere
+      </footer>
     </div>
     <script src="src/script.js"></script>
   </body>

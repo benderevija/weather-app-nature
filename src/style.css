@@ -2,14 +2,6 @@ body {
   font-family: "Dosis", sans-serif;
 }
 
-.main-info {
-  max-width: 1200px;
-  margin: 50px auto;
-  padding: 40px;
-  border: 1px solid #dadde1;
-  border-radius: 5px;
-}
-
 h1 {
   color: black;
   font-size: 50px;
@@ -17,15 +9,38 @@ h1 {
   line-height: 28px;
   margin-bottom: 20px;
 }
+
 ul {
   margin: 0;
   padding: 0;
 }
-li,
-h2 {
+
+li {
   font-weight: 300;
   color: rgba(118, 117, 119, 0.4);
   font-size: 30px;
   line-height: 30px;
   list-style: none;
+}
+.weather-app-wrapper {
+  max-width: 1200px;
+  margin: 50px auto;
+}
+.main-info {
+  padding: 40px;
+  border: 1px solid #dadde1;
+  border-radius: 5px;
+}
+.units {
+  text-align: right;
+  font-weight: 400;
+  font-size: 30px;
+}
+.icon {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.temperature {
+  text-align: right;
 }
