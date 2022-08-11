@@ -18,6 +18,7 @@
       href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
     <title>Nature Weather App</title>
   </head>
@@ -35,18 +36,18 @@
           </div>
           <div class="row">
             <div class="col-6 city">
-              <h1>New York</h1>
+              <h1 id="city"></h1>
               <ul>
                 <li>friday, 00:00</li>
-                <li>clear sky</li>
+                <li id="weather-description"></li>
               </ul>
             </div>
             <div class="col-6 temperature">
-              <h1>20°C</h1>
+              <h1><span id="temperature"></span> °</h1>
               <ul>
-                <li>feels like 20°C</li>
-                <li>humidity: <span class="indication">0%</span></li>
-                <li>wind: <span class="indication"> 0m/s</span></li>
+                <li>feels like <span id="feels-like"></span>°</li>
+                <li>humidity: <span id="humidity"></span>%</li>
+                <li>wind: <span id="wind"></span>m/s</li>
               </ul>
             </div>
           </div>
