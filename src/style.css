@@ -22,6 +22,7 @@ li {
   line-height: 30px;
   list-style: none;
 }
+
 .weather-app-wrapper {
   max-width: 1200px;
   margin: 50px auto;
@@ -36,6 +37,7 @@ li {
   font-weight: 400;
   font-size: 30px;
 }
+
 .icon {
   margin: 20px auto;
   text-align: center;
@@ -43,4 +45,16 @@ li {
 
 .temperature {
   text-align: right;
+}
+
+.main-info .active {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.main-info .link {
+  text-decoration: none;
+  color: black;
 }
