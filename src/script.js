@@ -26,6 +26,7 @@ let min = now.getMinutes();
 if (min < 10) {
   min = `0${min}`;
 }
+
 fullDate.innerHTML = `${day}, ${date} ${month}, ${hour}:${min}`;
 
 function displayTemperature(response) {
@@ -38,17 +39,23 @@ function displayTemperature(response) {
   let feelsLikeElement = document.querySelector("#feels-like");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
+  let iconElement = document.querySelector("#icon");
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   weatherDescriptionElement.innerHTML = response.data.weather[0].description;
   feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", `${response.data.weather[0].description}`);
 }
 
 let apiKey = "ad67c6657704952eeec41ea7e3bfce55";
 let units = "metric";
-let city = "New York";
+let city = "Zurich";
 let apiUrlLink = "https://api.openweathermap.org/data/2.5/weather?";
 let apiUrl = `${apiUrlLink}q=${city}&appid=${apiKey}&units=${units}`;
 
