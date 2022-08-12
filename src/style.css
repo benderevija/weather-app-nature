@@ -1,10 +1,13 @@
 body {
   font-family: "Dosis", sans-serif;
+  background-image: url("../img/clouds.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 h1 {
   color: black;
-  font-size: 50px;
+  font-size: 30px;
   font-weight: 400;
   line-height: 28px;
   margin-bottom: 20px;
@@ -17,25 +20,28 @@ ul {
 
 li {
   font-weight: 300;
-  color: rgba(118, 117, 119, 0.4);
-  font-size: 30px;
-  line-height: 30px;
+  color: rgba(53, 53, 53, 0.4);
+  font-size: 15px;
+  line-height: 15px;
   list-style: none;
 }
 
 .weather-app-wrapper {
-  max-width: 1200px;
+  max-width: 500px;
   margin: 50px auto;
 }
+
 .main-info {
   padding: 40px;
   border: 1px solid #dadde1;
-  border-radius: 5px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.3);
+  background-color: white;
 }
 .units {
   text-align: right;
   font-weight: 400;
-  font-size: 30px;
+  font-size: 15px;
 }
 
 .icon {

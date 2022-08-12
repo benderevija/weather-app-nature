@@ -1,34 +1,3 @@
-let fullDate = document.querySelector("#date");
-let now = new Date();
-let days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
-let day = days[now.getDay()];
-let date = now.getDate();
-let months = [
-  "jan",
-  "feb",
-  "mar",
-  "apr",
-  "may",
-  "jun",
-  "jul",
-  "aug",
-  "sep",
-  "oct",
-  "nov",
-  "dec",
-];
-let month = months[now.getMonth()];
-let hour = now.getHours();
-if (hour < 10) {
-  hour = `0${hour}`;
-}
-let min = now.getMinutes();
-if (min < 10) {
-  min = `0${min}`;
-}
-
-fullDate.innerHTML = `${day}, ${date} ${month}, ${hour}:${min}`;
-
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
@@ -105,5 +74,36 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+let fullDate = document.querySelector("#date");
+let now = new Date();
+let days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+let day = days[now.getDay()];
+let date = now.getDate();
+let months = [
+  "jan",
+  "feb",
+  "mar",
+  "apr",
+  "may",
+  "jun",
+  "jul",
+  "aug",
+  "sep",
+  "oct",
+  "nov",
+  "dec",
+];
+let month = months[now.getMonth()];
+let hour = now.getHours();
+if (hour < 10) {
+  hour = `0${hour}`;
+}
+let min = now.getMinutes();
+if (min < 10) {
+  min = `0${min}`;
+}
+
+fullDate.innerHTML = `${day}, ${date} ${month}, ${hour}:${min}`;
 
 search("New York");
