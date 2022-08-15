@@ -20,7 +20,7 @@ ul {
 
 li {
   font-weight: 300;
-  color: rgba(53, 53, 53, 0.4);
+  color: rgba(37, 36, 36, 0.4);
   font-size: 15px;
   line-height: 15px;
   list-style: none;
@@ -63,4 +63,18 @@ li {
 .main-info .link {
   text-decoration: none;
   color: black;
+}
+
+.weather-forecast {
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+  color: black;
+  border: 1px solid #dadde1;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.3);
+}
+
+.forecast-temperature-min {
+  color: rgba(37, 36, 36, 0.4);
 }
