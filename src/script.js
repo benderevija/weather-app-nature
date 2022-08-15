@@ -1,3 +1,32 @@
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+              <div class="col-2">
+                <div class="forecast-day">${day}</div>
+                <div class="forecast-image">
+                  <img
+                    src="https://img.freepik.com/premium-vector/sun-icon-bright-yellow-sol-symbol-with-rays-childish-simple-style_53562-14613.jpg?w=1060"
+                    alt=""
+                    width="20px"
+                  />
+                </div>
+                <div class="forecast-temperature">
+                  <span class="forecast-temperature-max">18°</span>
+                  <span class="forecast-temperature-min">12°</span>
+                </div>
+              </div>
+            `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
@@ -24,6 +53,7 @@ function displayTemperature(response) {
   );
   iconElement.setAttribute("alt", `${response.data.weather[0].description}`);
 }
+
 function search(city) {
   let apiKey = "ad67c6657704952eeec41ea7e3bfce55";
   let units = "metric";
@@ -107,3 +137,4 @@ if (min < 10) {
 fullDate.innerHTML = `${day}, ${date} ${month}, ${hour}:${min}`;
 
 search("New York");
+displayForecast();
