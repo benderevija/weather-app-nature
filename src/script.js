@@ -24,7 +24,7 @@ function displayForecast(response) {
                       forecastDay.weather[0].icon
                     }@2x.png"
                     alt=""
-                    width="20px"
+                    width="30px"
                   />
                 </div>
                 <div class="forecast-temperature">
@@ -96,41 +96,10 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let fahrenheitTemperatureElement = document.querySelector("#temperature");
-  let feelsLikeFahrenheitTemperatureElement = document.querySelector("#feels");
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
-  let feelsLikeFahrenheitTemperature = Math.round(
-    (feelsLikeCelsiusTemperature * 9) / 5 + 32
-  );
-  fahrenheitTemperatureElement.innerHTML = fahrenheitTemperature;
-  feelsLikeFahrenheitTemperatureElement.innerHTML =
-    feelsLikeFahrenheitTemperature;
-}
-
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  let celsiusTemperatureElement = document.querySelector("#temperature");
-  let feelsLikeCelsiusTemperatureElement = document.querySelector("#feels");
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
-  celsiusTemperatureElement.innerHTML = celsiusTemperature;
-  feelsLikeCelsiusTemperatureElement.innerHTML = feelsLikeCelsiusTemperature;
-}
-
 let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 let fullDate = document.querySelector("#date");
 let now = new Date();
