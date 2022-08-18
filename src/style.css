@@ -1,6 +1,6 @@
 body {
   font-family: "Dosis", sans-serif;
-  background-image: url("../img/clouds.jpg");
+  background-image: url("../img/forest2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -95,4 +95,14 @@ li {
   margin-top: 20px;
   padding: 10px;
   text-align: center;
+}
+
+.footer,
+.footer-link {
+  color: white;
+}
+
+.footer-link:hover {
+  color: rgba(255, 255, 255, 0.429);
+  transition: all 100ms ease-in-out;
 }
