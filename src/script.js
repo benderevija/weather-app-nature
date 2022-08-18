@@ -95,6 +95,26 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayHourlyForecast);
   axios.get(apiUrl).then(displayForecast);
 }
+function getSunTimes(timestamp) {
+  let time = new Date(timestamp * 1000);
+  let hour = time.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+  let min = time.getMinutes();
+  if (min < 10) {
+    min = `0${min}`;
+  }
+  return `${hour}:${min}`;
+}
+
+function displaySunTimes(response) {
+  let sunriseElement = document.querySelector("#sunrise-hour");
+  let sunsetElement = document.querySelector("#sunset-hour");
+
+  sunriseElement.innerHTML = `${getSunTimes(response.data.sys.sunrise)}`;
+  sunsetElement.innerHTML = `${getSunTimes(response.data.sys.sunset)}`;
+}
 
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
@@ -132,6 +152,7 @@ function search(city) {
   let apiUrl = `${apiUrlLink}q=${city}&appid=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(displayTemperature);
+  axios.get(apiUrl).then(displaySunTimes);
 }
 
 function handleSubmit(event) {
@@ -176,4 +197,4 @@ if (min < 10) {
 
 fullDate.innerHTML = `${day}, ${date} ${month}, ${hour}:${min}`;
 
-search("New York");
+search("London");
