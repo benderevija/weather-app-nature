@@ -1,6 +1,6 @@
 function formatHour(timestamp) {
   let hours = new Date(timestamp * 1000);
-  let hour = hours.getHours(timestamp * 1000);
+  let hour = hours.getHours();
   if (hour) {
     hour = `${hour}:00`;
   }
