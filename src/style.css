@@ -79,3 +79,14 @@ li {
 .forecast-temperature-min {
   color: rgba(37, 36, 36, 0.4);
 }
+
+.hourly-forecast {
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+  color: black;
+  border: 1px solid #dadde1;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.3);
+  font-size: 15px;
+}

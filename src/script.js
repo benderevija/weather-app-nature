@@ -1,3 +1,47 @@
+function formatHour(timestamp) {
+  let hours = new Date(timestamp * 1000);
+  let hour = hours.getHours();
+  if (hour) {
+    hour = `${hour}:00`;
+  }
+  return hour;
+}
+
+function displayHourlyForecast(response) {
+  console.log(response);
+  let hourlyForecast = response.data.hourly;
+  let hourlyForecastElement = document.querySelector("#hourly-forecast");
+
+  let forecastHourlyHTML = `<div class="row">`;
+  hourlyForecast.forEach(function (forecastHour, index) {
+    if (index < 6) {
+      forecastHourlyHTML =
+        forecastHourlyHTML +
+        `
+              <div class="col-2">
+                <div class="forecast-hour">${formatHour(forecastHour.dt)}</div>
+                <div class="forecast-hour-image">
+                  <img
+                    src="https://openweathermap.org/img/wn/${
+                      forecastHour.weather[0].icon
+                    }@2x.png"
+                    alt=""
+                    width="30px"
+                  />
+                </div>
+                <div class="forecast-hour-temperature">
+                  <span class="forecast-hour-temperature-max">${Math.round(
+                    forecastHour.temp
+                  )}°</span>
+                </div>
+              </div>
+            `;
+    }
+  });
+  forecastHourlyHTML = forecastHourlyHTML + `</div>`;
+  hourlyForecastElement.innerHTML = forecastHourlyHTML;
+}
+
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -50,6 +94,7 @@ function getForecast(coordinates) {
   let lon = coordinates.lon;
   let apiUrl = `${apiUrlLink}lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayForecast);
+  axios.get(apiUrl).then(displayHourlyForecast);
 }
 
 function displayTemperature(response) {
