@@ -117,7 +117,6 @@ function displaySunTimes(response) {
 }
 
 function displayTemperature(response) {
-  console.log(response);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let weatherDescriptionElement = document.querySelector(
@@ -155,7 +154,6 @@ function search(city) {
   let apiUrl = `${apiUrlLink}q=${city}&appid=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(displayTemperature);
-
   axios.get(apiUrl).then(displaySunTimes);
 }
 
