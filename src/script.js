@@ -21,9 +21,9 @@ function displayHourlyForecast(response) {
                 <div class="forecast-hour">${formatHour(forecastHour.dt)}</div>
                 <div class="forecast-hour-image">
                   <img
-                    src="https://openweathermap.org/img/wn/${
+                    src="../weather-app-nature/img/${
                       forecastHour.weather[0].icon
-                    }@2x.png"
+                    }.svg"
                     alt=""
                     width="30px"
                   />
@@ -63,9 +63,9 @@ function displayForecast(response) {
                 <div class="forecast-day">${formatDay(forecastDay.dt)}</div>
                 <div class="forecast-image">
                   <img
-                    src="https://openweathermap.org/img/wn/${
+                    src="../weather-app-nature/img/${
                       forecastDay.weather[0].icon
-                    }@2x.png"
+                    }.svg"
                     alt=""
                     width="30px"
                   />
@@ -138,7 +138,7 @@ function displayTemperature(response) {
   windElement.innerHTML = Math.round(response.data.wind.speed);
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `../weather-app-nature/img/${response.data.weather[0].icon}.svg`
   );
   iconElement.setAttribute("alt", `${response.data.weather[0].description}`);
 
