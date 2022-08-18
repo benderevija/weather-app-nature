@@ -1,6 +1,6 @@
 function formatHour(timestamp) {
   let hours = new Date(timestamp * 1000);
-  let hour = hours.getHours();
+  let hour = hours.getHours(timestamp * 1000);
   if (hour) {
     hour = `${hour}:00`;
   }
@@ -117,6 +117,7 @@ function displaySunTimes(response) {
 }
 
 function displayTemperature(response) {
+  console.log(response);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let weatherDescriptionElement = document.querySelector(
@@ -126,6 +127,7 @@ function displayTemperature(response) {
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#icon");
+  let fullDate = document.querySelector("#date");
 
   celsiusTemperature = Math.round(response.data.main.temp);
   feelsLikeCelsiusTemperature = Math.round(response.data.main.feels_like);
@@ -141,6 +143,7 @@ function displayTemperature(response) {
     `../weather-app-nature/img/${response.data.weather[0].icon}.svg`
   );
   iconElement.setAttribute("alt", `${response.data.weather[0].description}`);
+  fullDate.innerHTML = getFullDate(new Date(), response.data.timezone);
 
   getForecast(response.data.coord);
 }
@@ -152,7 +155,7 @@ function search(city) {
   let apiUrl = `${apiUrlLink}q=${city}&appid=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(displayTemperature);
-  axios.get(apiUrl).then(getFullDate);
+
   axios.get(apiUrl).then(displaySunTimes);
 }
 
@@ -167,12 +170,24 @@ let celsiusTemperature = null;
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-function getFullDate() {
-  let fullDate = document.querySelector("#date");
-  let now = new Date();
+function getFullDate(date, timezone) {
+  let localOffsetInMs = date.getTimezoneOffset() * 60 * 1000;
+  let targetOffsetInMs = timezone * 1000;
+  let targetTimestamp = date.getTime() + localOffsetInMs + targetOffsetInMs;
+  let now = new Date(targetTimestamp);
+
+  let hour = now.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+  let min = now.getMinutes();
+  if (min < 10) {
+    min = `0${min}`;
+  }
+
   let days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
   let day = days[now.getDay()];
-  let date = now.getDate();
+  let dates = now.getDate();
   let months = [
     "jan",
     "feb",
@@ -188,15 +203,8 @@ function getFullDate() {
     "dec",
   ];
   let month = months[now.getMonth()];
-  let hour = now.getHours();
-  if (hour < 10) {
-    hour = `0${hour}`;
-  }
-  let min = now.getMinutes();
-  if (min < 10) {
-    min = `0${min}`;
-  }
 
-  fullDate.innerHTML = `${day}, ${date} ${month}, ${hour}:${min}`;
+  return `${day}, ${dates} ${month}, ${hour}:${min}`;
 }
+
 search("London");
