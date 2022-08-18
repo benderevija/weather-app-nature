@@ -41,11 +41,11 @@ li {
 .units {
   text-align: right;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .icon {
-  margin: 20px auto;
+  margin: 0 auto;
   text-align: center;
 }
 
