@@ -152,6 +152,7 @@ function search(city) {
   let apiUrl = `${apiUrlLink}q=${city}&appid=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(displayTemperature);
+  axios.get(apiUrl).then(getFullDate);
   axios.get(apiUrl).then(displaySunTimes);
 }
 
@@ -166,35 +167,36 @@ let celsiusTemperature = null;
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-let fullDate = document.querySelector("#date");
-let now = new Date();
-let days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
-let day = days[now.getDay()];
-let date = now.getDate();
-let months = [
-  "jan",
-  "feb",
-  "mar",
-  "apr",
-  "may",
-  "jun",
-  "jul",
-  "aug",
-  "sep",
-  "oct",
-  "nov",
-  "dec",
-];
-let month = months[now.getMonth()];
-let hour = now.getHours();
-if (hour < 10) {
-  hour = `0${hour}`;
-}
-let min = now.getMinutes();
-if (min < 10) {
-  min = `0${min}`;
-}
+function getFullDate() {
+  let fullDate = document.querySelector("#date");
+  let now = new Date();
+  let days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+  let day = days[now.getDay()];
+  let date = now.getDate();
+  let months = [
+    "jan",
+    "feb",
+    "mar",
+    "apr",
+    "may",
+    "jun",
+    "jul",
+    "aug",
+    "sep",
+    "oct",
+    "nov",
+    "dec",
+  ];
+  let month = months[now.getMonth()];
+  let hour = now.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+  let min = now.getMinutes();
+  if (min < 10) {
+    min = `0${min}`;
+  }
 
-fullDate.innerHTML = `${day}, ${date} ${month}, ${hour}:${min}`;
-
+  fullDate.innerHTML = `${day}, ${date} ${month}, ${hour}:${min}`;
+}
 search("London");
