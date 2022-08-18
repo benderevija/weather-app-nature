@@ -8,7 +8,6 @@ function formatHour(timestamp) {
 }
 
 function displayHourlyForecast(response) {
-  console.log(response);
   let hourlyForecast = response.data.hourly;
   let hourlyForecastElement = document.querySelector("#hourly-forecast");
 
@@ -93,8 +92,8 @@ function getForecast(coordinates) {
   let lat = coordinates.lat;
   let lon = coordinates.lon;
   let apiUrl = `${apiUrlLink}lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(displayForecast);
   axios.get(apiUrl).then(displayHourlyForecast);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayTemperature(response) {
