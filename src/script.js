@@ -21,9 +21,7 @@ function displayHourlyForecast(response) {
                 <div class="forecast-hour">${formatHour(forecastHour.dt)}</div>
                 <div class="forecast-hour-image">
                   <img
-                    src="../weather-app-nature/img/${
-                      forecastHour.weather[0].icon
-                    }.svg"
+                    src="img/${forecastHour.weather[0].icon}.svg"
                     alt=""
                     width="40px"
                   />
