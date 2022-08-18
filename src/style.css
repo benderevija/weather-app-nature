@@ -97,9 +97,17 @@ li {
   text-align: center;
 }
 
-.footer,
-.footer-link {
+.footer {
   color: white;
+}
+
+.footer-link {
+  margin: 0 auto;
+  color: white;
+  text-decoration: none;
+}
+.link {
+  text-align: right;
 }
 
 .footer-link:hover {

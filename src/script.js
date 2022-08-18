@@ -1,9 +1,12 @@
 function formatHour(timestamp) {
   let hours = new Date(timestamp * 1000);
   let hour = hours.getHours();
-  if (hour) {
+  if (hour > 10) {
     hour = `${hour}:00`;
+  } else {
+    hour = `0${hour}:00`;
   }
+
   return hour;
 }
 
