@@ -21,9 +21,7 @@ function displayHourlyForecast(response) {
                 <div class="forecast-hour">${formatHour(forecastHour.dt)}</div>
                 <div class="forecast-hour-image">
                   <img
-                    src="../weather-app-nature/img/${
-                      forecastHour.weather[0].icon
-                    }.svg"
+                    src="/img/${forecastHour.weather[0].icon}.svg"
                     alt=""
                     width="30px"
                   />
@@ -63,9 +61,7 @@ function displayForecast(response) {
                 <div class="forecast-day">${formatDay(forecastDay.dt)}</div>
                 <div class="forecast-image">
                   <img
-                    src="../weather-app-nature/img/${
-                      forecastDay.weather[0].icon
-                    }.svg"
+                    src="/img/${forecastDay.weather[0].icon}.svg"
                     alt=""
                     width="30px"
                   />
@@ -137,10 +133,7 @@ function displayTemperature(response) {
   feelsLikeElement.innerHTML = feelsLikeCelsiusTemperature;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
-  iconElement.setAttribute(
-    "src",
-    `../weather-app-nature/img/${response.data.weather[0].icon}.svg`
-  );
+  iconElement.setAttribute("src", `/img/${response.data.weather[0].icon}.svg`);
   iconElement.setAttribute("alt", `${response.data.weather[0].description}`);
   fullDate.innerHTML = getFullDate(new Date(), response.data.timezone);
 
