@@ -21,7 +21,7 @@ function displayHourlyForecast(response) {
         forecastHourlyHTML +
         `
               <div class="col-2">
-                <div class="forecast-hour">${formatHour(forecastHour.dt)}</div>
+                <div class="forecast-hour">${formatHour(forecastHour.dt)}*</div>
                 <div class="forecast-hour-image">
                   <img
                     src="img/${forecastHour.weather[0].icon}.svg"
@@ -111,8 +111,8 @@ function displaySunTimes(response) {
   let sunriseElement = document.querySelector("#sunrise-hour");
   let sunsetElement = document.querySelector("#sunset-hour");
 
-  sunriseElement.innerHTML = `${getSunTimes(response.data.sys.sunrise)}`;
-  sunsetElement.innerHTML = `${getSunTimes(response.data.sys.sunset)}`;
+  sunriseElement.innerHTML = `${getSunTimes(response.data.sys.sunrise)}*`;
+  sunsetElement.innerHTML = `${getSunTimes(response.data.sys.sunset)}*`;
 }
 
 function displayTemperature(response) {
